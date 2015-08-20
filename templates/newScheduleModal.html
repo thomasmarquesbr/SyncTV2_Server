@@ -1,0 +1,100 @@
+<form class="form-horizontal" role="form" name="newScheduleForm"> 
+    <div ng-switch="step">
+      <!-- ETAPA 1 -->
+      <div ng-switch-when="1">
+          <div class="modal-header">
+                  <button type="button" class="close" ng-click="fechar()" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Preencha os dados da Programação - (Etapa 1 de 2)</h4>
+          </div>
+          <div class="modal-body">
+                  <div class="form-group" ng-class="{ 'has-error' : newScheduleForm.nameSchedule.$invalid && !newScheduleForm.nameSchedule.$pristine }">
+                    <label class="col-md-3 control-label" for="nameSchedule">Nome: </label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control input-md" name="nameSchedule" placeholder="Digite o nome da Programação" ng-model="nameSchedule" required>
+                      <p ng-show="newScheduleForm.nameSchedule.$invalid && !newScheduleForm.nameSchedule.$pristine" class="help-block">Campo obrigatório</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="descSchedule">Descrição: </label>
+                    <div class="col-md-8">
+                      <textarea type="text" class="form-control input-md" name="descSchedule" placeholder="Digite uma descrição para a programação" rows="5" ng-model="descSchedule" ></textarea>
+                      <p class="help-block">(Opcional)</p>
+                    </div>
+                  </div> 
+                  <div class="container">
+                    <p class="text-danger" ng-show="errorMessage">{{errorMessage1}}</p>
+                    <p class="text-warning"><small>Se você não clicar no botão salvar, os campos preenchidos serão perdidos.</small></p>
+                  </div>
+              
+          </div>
+          <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Fechar</button>
+                  <button type="button" class="btn btn-custom-spin btn-md" ng-click="setStep(2)" ng-disabled="newScheduleForm.$invalid">
+                      Próximo <span class="glyphicon glyphicon-chevron-right"></span>
+                  </button>
+          </div>
+      </div>
+      <!-- ETAPA 2 -->
+      <div ng-switch-when="2">
+          <div class="modal-header">
+                  <button type="button" class="close" ng-click="fechar()" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Preencha os dados da Programação - (Etapa 2 de 2)</h4>
+          </div>
+          <div class="modal-body">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="nameSchedule">Data de Início: </label>
+                    <div class="col-md-8">
+                      <div class="input-group">
+                        <input sytle="width:50% !important;" type="text" disabled="true" class="form-control" datepicker-popup="{{format}}" ng-model="dtBegin" is-open="calendar.opened" min-date="minDateBegin" datepicker-options="dateOptions" ng-required="true" show-button-bar="false"/>
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="open($event)" ng-disabled="calendar.opened"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="nameSchedule">Hora de Início: </label>
+                      <div class="col-md-8">
+                        <div class="input-group">
+                          <timepicker ng-model="timeBegin" show-meridian="false" arrowkeys="false" required></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="nameSchedule">Data de Término: </label>
+                    <div class="col-md-8">
+                      <div class="input-group">
+                        <input type="text" disabled="true" class="form-control" datepicker-popup="{{format}}" ng-model="dtEnd" is-open="calendar.opened2" min-date="dtBegin" datepicker-options="dateOptions" ng-required="true" show-button-bar="false" />
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="open2($event)" ng-disabled="calendar.opened2"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="nameSchedule">Hora de Término: </label>
+                      <div class="col-md-8">
+                        <div class="input-group">
+                          <timepicker ng-model="timeEnd" show-meridian="false" arrowkeys="false" required></timepicker>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="container">
+                    <p class="text-danger" ng-show="errorMessage">{{errorMessage2}}</p>
+                    <p class="text-warning"><small>Se você não clicar no botão salvar, os campos preenchidos serão perdidos.</small></p>
+                  </div>
+          </div>
+          <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Fechar</button>
+                  <button type="button" class="btn btn-custom-spin btn-md" ng-click="setStep(1)">
+                      <span class="glyphicon glyphicon-chevron-left"></span> Anterior
+                  </button>
+                  <button type="button" class="btn btn-custom-spin btn-md" ng-click="salvar()" ng-disabled="newScheduleForm.$invalid">Salvar</button>
+          </div>
+      </div>
+    </div> 
+</form>

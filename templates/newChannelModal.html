@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="fechar();" aria-hidden="true">&times;</button>
+  <h4 class="modal-title">Preencha os dados do Canal</h4>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal" role="form" name="newChannelForm">
+	    <div class="form-group" ng-class="{ 'has-error' : newChannelForm.channelName.$invalid && !newChannelForm.channelName.$pristine }">
+	        <label class="col-md-3 control-label" for="channelName">Canal: </label>
+	        <div class="col-md-8">
+	          <input type="text" class="form-control input-md" name="channelName" placeholder="Digite o nome do canal" ng-model="channelName" required>
+	          <p ng-show="newChannelForm.channelName.$invalid && !newChannelForm.channelName.$pristine" class="help-block">Campo obrigatório</p>
+	        </div>
+	    </div>  
+		<div class="form-group">
+	        <label class="col-md-3 control-label" for="descChannel">Descrição: </label>
+	        <div class="col-md-8">
+	          <textarea type="text" class="form-control input-md" name="descChannel" placeholder="Digite uma descrição para o canal" rows="5" ng-model="descChannel" ></textarea>
+	          <p class="help-block">(Opcional)</p>
+	        </div>
+	    </div> 
+	    <p class="text-danger">{{ErrorMessage}}</p>
+	    <p class="text-warning"><small>Se você não clicar no botão salvar, os campos preenchidos serão perdidos.</small></p>    
+	</form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Fechar</button>
+    <button type="button" class="btn btn-custom-spin btn-md" ng-click="salvar()" ng-disabled="newChannelForm.$invalid">Salvar</button>
+</div>
