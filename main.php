@@ -96,6 +96,7 @@
 
     <script src="ui.bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="dist/angular-file-upload.min.js"></script>
 
 
 </body>

@@ -20,7 +20,8 @@
 	</table>
 	
 
-	<div align="right" style="margin-top: 20px; margin-bottom: 20px">		
+	<div align="right" style="margin-top: 20px; margin-bottom: 20px">
+			<button class="btn btn-custom-spin btn-md" ng-click="editSchedule()"><span class="glyphicon glyphicon-edit"></span> Editar</button>		
 			<button class="btn btn-custom-spin btn-md" ng-click="newSchedule()"><span class="glyphicon glyphicon-plus-sign"></span> Novo</button>	
 	</div>
 <!--	

@@ -1,4 +1,4 @@
-var app = angular.module('SyncTV', ['ui.bootstrap']);
+var app = angular.module('SyncTV', ['ui.bootstrap','angularFileUpload']);
 
 //-----------------------------------Index.php-----------------------------------
 
@@ -8,7 +8,9 @@ app.controller('LoginController', function($scope, $modal){
   $scope.cadastrar = function(){
     var modalInstance = $modal.open({
       templateUrl: 'templates/cadastrarModal.html',
-      controller: 'LoginModalController'
+      controller: 'LoginModalController',
+      backdrop: 'static',
+      keyboard: false
     }); 
   };
 
@@ -16,7 +18,7 @@ app.controller('LoginController', function($scope, $modal){
 
 app.controller('LoginModalController', function($scope, $modalInstance){
 
-  $scope.errorMessage = '';
+  //$scope.errorMessage = '';
 
   $scope.enviar = function(){
     //alert('enviar');
@@ -49,7 +51,7 @@ app.controller('PerfilController', function($scope){
 
 //-----------------------------------geral.php-----------------------------------
 
-app.controller('geralController', function ($scope,$http) {
+app.controller('geralController', function ($scope, $http) {
   $scope.oneAtATime = true;
 
   $scope.groups = [
@@ -64,7 +66,7 @@ app.controller('geralController', function ($scope,$http) {
   ];
 
   $scope.getJson = function(){
-    $http.get("http://localhost/synctv2.0/example.json")
+    $http.get("http://localhost:8888/synctv2/example.json")
       .success( function (response) {$scope.items = response;} );
   };
   $scope.getJson();
@@ -80,24 +82,30 @@ app.controller('channelsController', function($scope, $modal, $http){
     var modalInstance = $modal.open({
       templateUrl: 'templates/newChannelModal.html',
       controller: 'newChannelModalController',
-      backdrop: 'static'
+      backdrop: 'static',
+      keyboard: false
     }); 
   };
 
-  $scope.getJson = function(){
-    $http.get("http://localhost/synctv2.0/example.json")
-      .success( function (response) {$scope.names = response;} );
+  $scope.editChannel = function(){
+    var modalInstance = $modal.open({
+      templateUrl: 'templates/editChannelModal.html',
+      controller: 'editChannelModalController',
+      backdrop: 'static',
+      keyboard: false
+    });
   };
-  $scope.getJson();
 
 });
 
+//---------New Channel-----------------
 app.controller('newChannelModalController', function($scope, $modalInstance){
 
   $scope.errorMessage = '';
 
-  $scope.salvar = function(){
-    alert('enviar');
+
+  $scope.save = function(){
+    alert('Salvando ' + $scope.channel.name + $scope.channel.description);
     $modalInstance.close();
   };
 
@@ -107,6 +115,24 @@ app.controller('newChannelModalController', function($scope, $modalInstance){
   
 });
 
+//---------Edit Channel------------------
+app.controller('editChannelModalController', function($scope, $modalInstance){
+
+  $scope.errorMessage = '';
+
+
+  $scope.save = function(){
+    alert('Editando');
+    $modalInstance.close();
+  };
+
+  $scope.fechar = function(){
+    $modalInstance.dismiss();
+  };
+  
+});
+
+
 //---------------------------------Schedules.php---------------------------------
 
 app.controller('schedulesController', function($scope, $modal, $http){
@@ -115,17 +141,30 @@ app.controller('schedulesController', function($scope, $modal, $http){
     var modalInstance = $modal.open({
       templateUrl: 'templates/newScheduleModal.html',
       controller: 'newScheduleModalController',
-      backdrop: 'static'
+      backdrop: 'static',
+      keyboard: false
     }); 
   };
 
+  $scope.editSchedule = function(){
+    var modalInstance = $modal.open({
+      templateUrl: 'templates/editScheduleModal.html',
+      controller: 'editScheduleModalController',
+      backdrop: 'static',
+      keyboard: false,
+      size: 'lg'
+    });
+  };
+
   $scope.getJson = function(){
-    $http.get("http://localhost/synctv2.0/example.json")
+    $http.get("http://localhost:8888/synctv2/example.json")
       .success( function (response) {$scope.names = response;} );
   };
   //$scope.getJson();
 
 });
+
+//------------New Schedule---------------
 
 app.controller('newScheduleModalController', function($scope, $modalInstance){
 
@@ -195,6 +234,157 @@ app.controller('newScheduleModalController', function($scope, $modalInstance){
         }
 
 
-  //------TimePicker-----
+//------TimePicker-----
+});
 
+//------------Edit Schedule---------------
+
+app.controller('editScheduleModalController', function($scope, $modalInstance){
+
+  $scope.save = function(){
+    alert('enviar');
+    $modalInstance.close();
+  };
+
+  $scope.fechar = function(){
+    $modalInstance.dismiss();
+  };
+
+});
+
+//----------------------------------Multimidia.php--------------------------------
+app.controller('multimidiaController', function($scope, $modal, $http){
+  
+  $scope.newMedias = function(){
+    var modalInstance = $modal.open({
+      templateUrl: 'templates/newMediasModal.html',
+      controller: 'newMediasController',
+      backdrop: 'static',
+      keyboard: false,
+      size: 'lg'
+    }); 
+  };
+
+  $scope.editMedias = function(){
+    var modalInstanceInstance = $modal.open({
+      templateUrl: 'templates/editMediasModal.html',
+      controller: 'editMediasController',
+      backdrop: 'size',
+      keyboard: false,
+      size: 'lg'
+    });
+  };
+
+  $scope.getJson = function(){
+    $http.get("http://localhost:8888/synctv2/example.json")
+      .success( function (response) {$scope.names = response;} );
+  };
+  //$scope.getJson();
+
+});
+
+app.controller('newMediasController', ['$scope', '$modalInstance', 'FileUploader', function($scope,$modalInstance, FileUploader) {
+
+  $scope.salvar = function(){
+    alert('enviar');
+    $modalInstance.close();
+  };
+
+  $scope.fechar = function(){
+    $modalInstance.dismiss();
+  };
+
+  var uploader = $scope.uploader = new FileUploader({
+              url: 'upload.php'
+          });
+
+          // FILTERS
+
+          uploader.filters.push({
+              name: 'customFilter',
+              fn: function(item /*{File|FileLikeObject}*/, options) {
+                  return this.queue.length < 10;
+              }
+          });
+
+          // CALLBACKS
+
+          uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
+              console.info('onWhenAddingFileFailed', item, filter, options);
+          };
+          uploader.onAfterAddingFile = function(fileItem) {
+              console.info('onAfterAddingFile', fileItem);
+          };
+          uploader.onAfterAddingAll = function(addedFileItems) {
+              console.info('onAfterAddingAll', addedFileItems);
+          };
+          uploader.onBeforeUploadItem = function(item) {
+              console.info('onBeforeUploadItem', item);
+          };
+          uploader.onProgressItem = function(fileItem, progress) {
+              console.info('onProgressItem', fileItem, progress);
+          };
+          uploader.onProgressAll = function(progress) {
+              console.info('onProgressAll', progress);
+          };
+          uploader.onSuccessItem = function(fileItem, response, status, headers) {
+              console.info('onSuccessItem', fileItem, response, status, headers);
+          };
+          uploader.onErrorItem = function(fileItem, response, status, headers) {
+              console.info('onErrorItem', fileItem, response, status, headers);
+          };
+          uploader.onCancelItem = function(fileItem, response, status, headers) {
+              console.info('onCancelItem', fileItem, response, status, headers);
+          };
+          uploader.onCompleteItem = function(fileItem, response, status, headers) {
+              console.info('onCompleteItem', fileItem, response, status, headers);
+          };
+          uploader.onCompleteAll = function() {
+              console.info('onCompleteAll');
+          };
+
+          console.info('uploader', uploader);
+}]);
+
+//------------Edit Mídias-----------
+
+app.controller('editMediasController', function($scope, $modalInstance){
+
+  $scope.save = function(){
+    alert('Editando');
+    $modalInstance.close();
+  };
+
+  $scope.fechar = function(){
+    $modalInstance.dismiss();
+  };
+
+});
+
+//-----------------------------------Perfil.php-----------------------------------
+app.controller('PerfilController', function($scope, $modal){
+  
+  $scope.changePassword = function(){
+    var modalInstance = $modal.open({
+      templateUrl: 'templates/changePasswordModal.html',
+      controller: 'changePasswordController',
+      backdrop: 'static'
+    }); 
+  };
+
+});
+
+app.controller('changePasswordController', function($scope, $modalInstance){
+
+  //$scope.errorMessage = '';
+
+  $scope.salvar = function(){
+    //alert('enviar');
+    $modalInstance.close();
+  };
+
+  $scope.fechar = function(){
+    $modalInstance.dismiss();
+  };
+  
 });

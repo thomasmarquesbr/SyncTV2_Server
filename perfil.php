@@ -11,7 +11,7 @@
     </div>
 
     <div class="text-left">
-        <button class="btn btn-custom-spin btn-md" ng-click="alterPwd()">Alterar Senha</button>
+        <button class="btn btn-custom-spin btn-md" ng-click="changePassword()">Alterar Senha</button>
         <a href="logout.php" class="btn btn-custom-spin btn-md">LogOut</a>
     </div>
 </div>

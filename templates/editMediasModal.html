@@ -1,0 +1,16 @@
+<form class="form-horizontal" role="form" name="editMediasForm">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="fechar();" aria-hidden="true">&times;</button>
+	  <h4 class="modal-title">Editando Mídias</h4>
+	</div>
+	<div class="modal-body">
+		    
+		    <p class="text-danger">{{ErrorMessage}}</p>
+		    <p class="text-warning"><small>Se você não clicar no botão salvar, os campos preenchidos serão perdidos.</small></p>    
+		
+	</div>
+	<div class="modal-footer">
+	    <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Fechar</button>
+	    <input type="submit" class="btn btn-custom-spin btn-md" ng-click="save()" ng-disabled="editMediasForm.$invalid" value="Salvar"></input>
+	</div>
+</form>
