@@ -1,0 +1,39 @@
+.checkbox label {
+	color: rgba(0,0,0,0.8);
+}
+
+.container .jumbotron {
+  background-color: rgba(240,240,240,0.65);
+  border-radius: 1em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+
+.container .jumbotron h1 {
+	/*color: rgba(203, 26, 68, 1);*/
+	color: #e74c3c;
+/*	font-weight: bold;*/
+}
+
+.container .jumbotron p {
+	color: rgba(0,0,0,0.8);
+	/*font-weight: bold;*/
+}
+
+.container .jumbotron h4 {
+	/*color: rgba(0,0,0,0.8);*/
+}
+
+.modal .modal-dialog .modal-content {
+	background: rgba(255,255,255,0.95);
+}
+
+.modal .modal-dialog .modal-content form {
+	margin: 20px;
+}
+
+.form-control {
+	max-width: 400px;
+}
+

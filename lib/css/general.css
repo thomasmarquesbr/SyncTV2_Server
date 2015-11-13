@@ -1,0 +1,318 @@
+body {
+  background: url(../img/background1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  width: 100%;
+}
+
+/*****************************   Button Custom   *****************************/
+/*.btn-custom-spin.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-custom-spin {
+  color: #ffffff;
+  font-size: 1.1em;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #cb1a38;
+  background-image: -moz-linear-gradient(top, #cb1a44, #cb1a26);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cb1a44), to(#cb1a26));
+  background-image: -webkit-linear-gradient(top, #cb1a44, #cb1a26);
+  background-image: -o-linear-gradient(top, #cb1a44, #cb1a26);
+  background-image: linear-gradient(to bottom, #cb1a44, #cb1a26);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcb1a44', endColorstr='#ffcb1a26', GradientType=0);
+  border-width: 0px;
+  border-color: #cb1a26 #cb1a26 #87111a;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #cb1a26;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders 
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-custom-spin:hover,
+.btn-custom-spin:focus,
+.btn-custom-spin:active,
+.btn-custom-spin.active,
+.btn-custom-spin.disabled,
+.btn-custom-spin[disabled] {
+  color: #ffffff;
+}
+.btn-custom-spin:active,
+.btn-custom-spin.active {
+  background-color: #9e141e ;
+}
+*/
+/***************************** NavTabs Custom *********************************/
+./*bs-example {
+  margin: 20px;
+}
+
+/* tab color 
+.nav-tabs>li>a {
+  background-color: rgba(200,200,200,1); 
+  color:#000000;
+  font-size: 1.1em;
+}
+
+/* active tab color 
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #cb1a38;
+  background-color: rgba(255,255,255,0.9);
+}
+
+/* hover tab color 
+.nav-tabs>li>a:hover {
+  background-color: rgba(255,255,255,0.9);
+  color: #cb1a38;
+}
+
+/**************************** Tables Custom *************************************/
+.flat-table {
+    margin-bottom: 20px;
+    border-collapse:collapse;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    border: none
+                border-radius: 3px;
+               -webkit-border-radius: 3px;
+               -moz-border-radius: 3px;
+    table-layout: fixed;  
+    white-space: nowrap;
+    box-shadow: 5px 5px 3px #888888;
+  }
+  .flat-table th, .flat-table td {
+    box-shadow: inset 0 -1px rgba(0,0,0,0.25), 
+      inset 1 1px rgba(0,0,0,0.25);
+  }
+  .flat-table th {
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    padding: 1em;
+    color: rgba(203, 26, 56, 0.6);
+    border-bottom: 1px;
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    /*font-size: 1.3em;*/
+    background: rgba(0,0,0,0.05);
+    text-align: left;
+  }
+  .flat-table td {
+    color: rgba(0,0,0,0.6);
+    padding: 0.7em 1em 0.7em 1.15em;
+    text-shadow: 0 0 1px rgba(255,255,255,0.1);
+    /*font-size: 1.1em;*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .flat-table tr {
+    -webkit-transition: background 0.3s, box-shadow 0.3s;
+    -moz-transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
+    width: 100%;
+    text-align: left;
+  }
+  .flat-table-1 {
+    background: rgb(255,255,255);
+    width: 100%;
+  }
+  .flat-table-1 tr:hover {
+    background: rgba(0,0,0,0.05);
+  }
+  
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*.container{
+  background-color: rgba(240,240,240,0.92);
+  border-radius: 1em;
+  min-height: 650px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}*/
+
+.divMain {
+  width: 95%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+  background-color: rgba(255,255,255,1);
+  padding: 10px;
+  border-radius: 10px;
+}
+.divContent{
+  min-height: 700px;
+  padding-top: 10px;
+}
+
+.divContentPhoto{
+  
+  width: 20%;
+  height: 350px;
+  background-color: #cccccc;
+}
+
+.divContentPerfil{
+  margin: 0% 0% 1% 1%;
+  width: 79%;
+  overflow: auto;
+  height: 350px;
+  background-color: #cccccc;
+}
+/*---------------------------------------------------------------------nav-pills horizontais-----------------------------------------------------------------*/
+
+.nav-pills>li>a {
+  /*color:#000000;*/
+  color: #34495e;
+  /*font-size: 1.2em;*/
+}
+
+/* active tab color */
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  /*text-color: #000000;*/
+  color: #ffffff;
+  /*background-color: #cb1a38;*/
+  background-color: #e74c3c;
+}
+
+/* hover tab color */
+.nav-pills>li>a:hover {
+  /*color: #000000;*/
+  color: #34495e;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/* ---------------------------------------------------------------------nav-tabs verticais-------------------------------------------------------------------*/
+
+.nav-tabs>li>a {
+  /*color:#000000;*/
+  color: #34495e;
+  /*font-size: 1.1em;*/
+}
+
+/* active tab color */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  /*color: #cb1a38;*/
+  color: #e74c3c;
+}
+
+/* hover tab color */
+.nav-tabs>li>a:hover {
+  /*color: #cb1a38;*/
+  color: #e74c3c;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------- Tabs verticais ----------------------------------------------------------------------*/
+
+.tabs-left > .nav-tabs {
+    border-bottom: 0;
+    min-height: 700px;
+}
+
+.tab-content > .tab-pane{
+    display: none;
+}
+
+.tab-content > .active {
+    display: block;
+    overflow: auto;
+}
+
+
+.tabs-below > .nav-tabs {
+    border-top: 1px solid #ddd;
+}
+
+.tabs-below > .nav-tabs > li {
+    margin-top: -1px;
+    margin-bottom: 0;
+}
+
+.tabs-left > .nav-tabs > li{
+    float: none;
+
+}
+
+.tabs-left > .nav-tabs > li > a{
+    min-width: 150px;
+    margin-right: 0;
+    margin-bottom: 3px;
+    text-align: left;
+
+}
+
+.tabs-left > .nav-tabs {
+    float: left;
+    margin-right: 19px;
+    border-right: 1px solid #ddd;
+
+
+}
+
+.tabs-left > .nav-tabs > li > a {
+    margin-right: -1px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+
+
+}
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+    border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+
+
+}
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus {
+    border-color: #ddd transparent #ddd #ddd;
+    *border-right-color: #ffffff;
+
+}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------- Button file upload-------------------------------------------------------------------*/
+
+.fileUpload {
+      position: relative;
+      overflow: hidden;
+      margin: 10px;
+  }
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------- Messages Angular  -------------------------------------------------------------------*/
+
+.error {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/*
+.submissionMessage {
+  background-color: rgba(255,255,255, 0.2);
+  border-radius: 5px;
+  padding: 12px;
+  text-align: center;
+  display: block;
+  box-shadow: 0 0 2px white;
+  width: 60%;
+}*/

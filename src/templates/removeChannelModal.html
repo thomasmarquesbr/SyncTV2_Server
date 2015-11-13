@@ -1,0 +1,15 @@
+<form class="form-horizontal" role="form" name="removeChannelForm">
+	<div class="modal-header">
+	  <button type="button" class="close" ng-click="fechar();" aria-hidden="true">&times;</button>
+	  <h4 class="modal-title">Removendo Canais</h4>
+	</div>
+	<div class="modal-body">
+		    
+		<h6>Tem certeza que deseja remover o canal "{{ channel.name }}"? Esta operação não poderá ser desfeita. </h6>
+		<p ng-class="{'submissionMessage' : submission}" class="text-danger" ng-bind="submissionMessage"></p> 
+	</div>
+	<div class="modal-footer">
+	    <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Cancelar</button>
+	    <input type="submit" class="btn btn-danger btn-md" ng-click="save()" ng-disabled="removeChannelForm.$invalid" value="Remover"></input>
+	</div>
+</form>

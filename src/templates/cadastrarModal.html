@@ -1,0 +1,43 @@
+<form class="form-horizontal" role="form" name="userForm" ng-submit="submitForm()" novalidate>   
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="fechar()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Preencha o formulário</h4>
+  </div>
+  <div class="modal-body">   
+    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+      <label class="col-md-3 control-label" for="userName">Usuário: </label>
+      <div class="col-md-8">
+        <input type="text" class="form-control input-md" name="username" placeholder="Nome de Acesso" ng-model="formData.username" ng-class="{'error' : errorUsername}" required>
+        <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Campo obrigatório</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+      <label class="col-md-3 control-label" for="email">Email: </label>
+      <div class="col-md-8">
+        <input type="email" class="form-control input-md" name="email" placeholder="Email" ng-model="formData.email" ng-class="{'error' : errorEmail}" required>
+        <p class="help-block" ng-show="userForm.email.$invalid && !userForm.email.$pristine">Campo inválido!</p>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+      <label class="col-md-3 control-label" for="password">Senha: </label>
+        <div class="col-md-8">
+        <input type="password" class="form-control input-md" name="password" placeholder="Senha" ng-model="formData.password" ng-minlength="8" ng-class="{'error' : errorPassword}" required>
+        <p class="help-block" ng-show="userForm.password.$error.minlength && !userForm.password.$pristine " >Mínimo de 8 caracteres obrigatório</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="confirmPassword">Confirmar senha:</label>
+        <div class="col-md-8">
+        <input type="password" class="form-control input-md" name="confirmPassword" placeholder="Senha Novamente" ng-model="formData.confirmPassword" ng-class="{'error' : errorPassword}" required>
+        <p class="help-block" ng-show=""></p>
+        <p class="text-danger" ng-show="errorPassword">{{errorPassword}}</p>
+      </div>
+    </div>
+    <p ng-class="{'submissionMessage' : submission}" class="text-danger" ng-bind="submissionMessage"></p>              
+  </div>
+  <div class="modal-footer">
+    <p class="text-warning text-left"><small>Se você não enviar, os campos preenchidos serão perdidos</small></p>  
+    <button type="button" class="btn btn-default btn-md" ng-click="fechar()">Fechar</button>
+    <input type="submit" class="btn btn-danger btn-md" name="Enviar" value="Enviar"  ng-disabled="userForm.$invalid"/>
+  </div>
+</form>
