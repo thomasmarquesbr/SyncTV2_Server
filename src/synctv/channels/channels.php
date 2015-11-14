@@ -18,11 +18,8 @@
 	</table>
 	
 
-	<div align="right" style="margin-top: 20px; margin-bottom: 20px">	
-		<div class="btn-group" role="group">
-			<button class="btn btn-default btn-md" ng-click="removeChannel()"><span class="glyphicon glyphicon-trash"></span> Remover</button>
-			<button class="btn btn-default btn-md" ng-click="editChannel()"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-		</div>
+	<div align="right" style="margin-top: 20px; margin-bottom: 20px">		
+		<button class="btn btn-default btn-md" ng-click="removeAllChannel()"><span class="glyphicon glyphicon-trash"></span> Remover Tudo</button>
 		<button class="btn btn-danger btn-md" ng-click="newChannel()"><span class="glyphicon glyphicon-plus-sign"></span> Novo</button>	
 	</div>
 

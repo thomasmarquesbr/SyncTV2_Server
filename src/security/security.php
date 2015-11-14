@@ -24,7 +24,8 @@ $errorQuery =  array( 'errorInsert' => 'Não foi possível efetuar o cadastro!',
                       'errorInsertChannel' => 'Não foi possível cadastrar dados',
                       'channelExist' => 'Este canal já existe',
                       'channelRemoveError' => 'Não foi possível remover o canal',
-                      'channelUpdateError' => 'Não foi possível editar o canal'
+                      'channelUpdateError' => 'Não foi possível editar o canal',
+                      'channelsAllRemoveError' => 'Não foi possível remover os canais'
                       );
 // ==============================
 
@@ -183,9 +184,9 @@ function insertChannel($channel){
   
 }
 
-function removeChannel($channel){
-  $stmDelete = "DELETE FROM ".$GLOBALS['tableChannels']." WHERE `id`=".$channel['id'];
-  $result = $GLOBALS['link']->query($stmDelete);
+function editChannel($channel){
+  $stmEdit = "UPDATE ".$GLOBALS['tableChannels']." SET name='".$channel['name']."', description='".$channel['description']."' WHERE id=".$channel['id'];
+  $result = $GLOBALS['link']->query($stmEdit);
   if($result){
     return 'success';
   }else{
@@ -193,13 +194,23 @@ function removeChannel($channel){
   }
 }
 
-function editChannel($channel){
-  $stmEdit = "UPDATE ".$GLOBALS['tableChannels']." SET name='".$channel['name']."', description='".$channel['description']."' WHERE id=".$channel['id'];
-  $result = $GLOBALS['link']->query($stmEdit);
+function removeChannel($channel){
+  $stmDelete = "DELETE FROM ".$GLOBALS['tableChannels']." WHERE `id`=".$channel['id'];
+  $result = $GLOBALS['link']->query($stmDelete);
   if($result){
     return 'success';
   }else{
     return 'channelRemoveError';
+  }
+}
+
+function removeAllChannels(){
+  $stmDelete = "DELETE FROM ".$GLOBALS['tableChannels']." WHERE 1";
+  $result = $GLOBALS['link']->query($stmDelete);
+  if($result){
+    return 'success';
+  }else{
+    return 'channelsAllRemoveError';
   }
 }
 
